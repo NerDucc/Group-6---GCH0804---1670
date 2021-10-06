@@ -9,7 +9,7 @@
 
 // khai báo hằng số url của ứng dụng
 // tên miền của ứng dụng này
-define("SITE_URL", "http://localhost/school/");
+define("SITE_URL", "http://localhost/Group-6---GCH0804---1670/school/");
 
 // nên nạp đầu tiên
 include_once "models/Database.php";
@@ -22,13 +22,14 @@ include_once "controllers/AdminController.php";
 include_once "controllers/TrainingStaffController.php";
 include_once "controllers/TrainerController.php";
 include_once "controllers/TraineeController.php";
+include_once "controllers/CourseController.php";
 
 // nạp tiếp các model
 include_once "models/AdminModel.php";
 include_once "models/TrainingStaffModel.php";
 include_once "models/TrainerModel.php";
 include_once "models/TraineeModel.php";
-
+include_once "models/CourseModel.php";
 // nạp tiếp router.php
 include_once "router.php";
 
