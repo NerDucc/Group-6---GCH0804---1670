@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.heading {
+    height: 60px;
+    background-image: linear-gradient(120deg, #9b59b6, #3498db, #9b59b6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.heading__logo {
+    width: 80px;
+    height: 50px;
+    padding-left: 10px;
+}
+
+.heading__logo i {
+    color: #000;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.heading__title {
+    color: #fff;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
