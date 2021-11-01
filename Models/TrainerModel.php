@@ -54,7 +54,7 @@ class TrainerModel extends Database
         $sqlSelect = "SELECT $this->table.id, $this->table.course_id, $this->table.trainer_name, $this->table.trainer_email, $this->table.trainer_phone,
                         $this->table.trainer_address, course.course_name
                         FROM $this->table 
-                        INNER JOIN course
+                        INNER JOIN course 
                         ORDER BY $this->table.id DESC ";
 
         $stmt = $this->conn->prepare($sqlSelect);

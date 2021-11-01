@@ -33,7 +33,7 @@ class TraineeModel extends Database
         return $users;
     }
 
-    // check trùng email
+    // check trùng email 
     public function fetchEmail($email)
     {
         $sql = "SELECT * FROM $this->table WHERE trainee_email = ? LIMIT 1";
@@ -55,7 +55,7 @@ class TraineeModel extends Database
         $sqlSelect = "SELECT $this->table.id, $this->table.course_id, $this->table.trainee_name, $this->table.trainee_email, $this->table.trainee_sex,
                         $this->table.trainee_phone, $this->table.age, course.course_name
                         FROM $this->table 
-                        INNER JOIN course
+                        INNER JOIN course 
                         ORDER BY $this->table.id DESC ";
  
         $stmt = $this->conn->prepare($sqlSelect);
@@ -65,7 +65,7 @@ class TraineeModel extends Database
         $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
 
         $users = $stmt->fetchAll();
-
+        // var_dump($users);die;
         return $users;
     }
 

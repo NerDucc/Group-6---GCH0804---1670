@@ -67,7 +67,7 @@
                         <tr class="text-center">
                             <th>ID</th>
                             <th>Course name</th>
-                            <th>Subject title</th>
+                            <th>Subject major</th>
                             <th>Course description</th>
                             <th>End date</th>
                             <th>Action</th>
@@ -77,7 +77,7 @@
 
                     <tbody>
                         <?php
-                        if (is_array($course) && !empty($course)) :
+                        if (is_array($course) && !empty($course)):
                             foreach ($course as $key => $value) :
                         ?>
                                 <tr class="text-center">

@@ -89,7 +89,7 @@
                                     <td><?php echo $user->trainee_sex == 1 ? 'Female' : 'Male' ?></td>
                                     <td><?php echo $user->trainee_email ?></td>
                                     <td><?php echo $user->trainee_phone ?></span></td>
-                                    <td><?php echo $user->course_id == 0 ? 'No class yet' : $user->course_name ?></td>
+                                    <td><?php echo $user->course_id == 0 ? 'No class yet' : $user->course_name?></td>
                                     <td>
                                         <?php if ($_SESSION['level'] == 1) : ?>
                                             <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=trainee&action=edit&id=<?php echo $user->id ?>">

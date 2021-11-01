@@ -52,7 +52,7 @@
                                     <div class="col-sm-9">
 
                                         <select class="form-control col-md-8" name="course_category_id">
-                                            <option value=""> - Please select a course - </option>
+                                            <option value=""> - Please select the category - </option>
                                             <?php foreach ($courseCategories as $item) : ?>
                                                 <option value="<?php echo $item->id ?>"><?php echo $item->category_name ?></option>
                                             <?php endforeach ?>

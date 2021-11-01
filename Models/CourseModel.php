@@ -87,13 +87,13 @@ class CourseModel extends Database
         $stmtCourse->execute([$id]);
         $result = $stmtCourse->setFetchMode(PDO::FETCH_OBJ);
         $course = $stmtCourse->fetchObject();
-
+        ///////////////////////////
         $sqlTrainer = "SELECT * FROM trainer WHERE course_id = ? ";
         $stmtTrainer = $this->conn->prepare($sqlTrainer);
         $stmtTrainer->execute([$id]);
         $result1 = $stmtTrainer->setFetchMode(PDO::FETCH_OBJ);
         $trainer = $stmtTrainer->fetchObject();
-
+        ///////////////////////////
         $sqlTrainee = "SELECT * FROM trainee WHERE course_id = ? ORDER BY id DESC";
         $stmtTrainee = $this->conn->prepare($sqlTrainee);
         $stmtTrainee->execute([$id]);

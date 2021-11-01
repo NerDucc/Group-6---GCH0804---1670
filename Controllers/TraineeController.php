@@ -11,7 +11,7 @@ class TraineeController
 
             $users = $traineeModel->fetchSearch($keyword);
         } else {
-            // Gọi hàm
+            // Gọi hàm 
             $users = $traineeModel->fetchAll();
 
             $ids = array_column($users, 'id');
@@ -19,6 +19,7 @@ class TraineeController
             $users = array_filter($users, function ($key, $value) use ($ids) {
                 return in_array($value, array_keys($ids));
             }, ARRAY_FILTER_USE_BOTH);
+            // var_dump($users);
         }
 
         include_once "Views/Trainee/index.php";
@@ -43,7 +44,8 @@ class TraineeController
             if ($data['password'] == '') {
                 $error['password'] = " Password can not be blank ! ";
             }
-
+            
+            
             if (empty($error)) {
                 $trainee = new TraineeModel();
 
@@ -98,7 +100,7 @@ class TraineeController
                 $domain =  SITE_URL . "index.php?controller=trainee&action=create";
                 header("Location: $domain");
                 exit;
-            }
+            }   
 
             if (postInput('email') == '') {
                 $_SESSION['error_email'] = $error['email'] = " Please enter your email ";
@@ -124,6 +126,7 @@ class TraineeController
                 header("Location: $domain");
                 exit;
             }
+
 
             if (postInput('age') == '') {
                 $_SESSION['error_age'] = $error['age'] = " Please enter your age ";
@@ -213,7 +216,8 @@ class TraineeController
                 header("Location: $domain");
                 exit;
             }
-
+            
+            
             if (postInput('phone') == '') {
                 $_SESSION['error_phone'] = $error['phone'] = " Please enter your phone number ";
 
