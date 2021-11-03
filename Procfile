@@ -1,1 +1,1 @@
-web: http://localhost/school/index.php?controller=base&action=index
+web: http:/school/index.php?controller=base&action=index
