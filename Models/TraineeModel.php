@@ -49,7 +49,7 @@ class TraineeModel extends Database
         return $email;
     }
 
-    // Lấy ra tất cả các bản ghi
+    // Lấy ra tất cả các bản ghi //Doan Tu
     public function fetchAll()
     {
         $sqlSelect = "SELECT $this->table.id, $this->table.course_id, $this->table.trainee_name, $this->table.trainee_email, $this->table.trainee_sex,

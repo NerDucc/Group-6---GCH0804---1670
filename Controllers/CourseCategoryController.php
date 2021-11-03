@@ -3,7 +3,7 @@ class CourseCategoryController
 {
     public function index()
     {
-        // Gọi tới model
+        // Call model
         $courseCategoryModel = new CourseCategoryModel();
 
         if (isset($_GET['keyword'])) {
@@ -11,11 +11,11 @@ class CourseCategoryController
 
             $courseCategories = $courseCategoryModel->fetchSearch($keyword);
         } else {
-            // Gọi hàm
+            // Use model functions
             $courseCategories = $courseCategoryModel->fetchAll();
         }
 
-        // Trả về view
+        // Return view
         include_once "Views/CourseCategory/index.php";
     }
 
@@ -24,7 +24,7 @@ class CourseCategoryController
         include_once "Views/CourseCategory/create.php";
     }
 
-    // lưu data khi thêm mới
+    // Save data to database
     public function store()
     {
         $courseCategoryModel = new CourseCategoryModel();
@@ -64,7 +64,7 @@ class CourseCategoryController
                 exit;
             }
 
-            //error trống có nghĩa ko có lỗi
+            //error empty means no error
             if (empty($error)) {
 
                 $courseCategoryModel->fetchStore($data);
@@ -89,11 +89,11 @@ class CourseCategoryController
     public function edit()
     {
         $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
-        // khởi tạo model
+        // define model
         $courseCategoryModel = new CourseCategoryModel();
-        // lấy data từ model
+        // get data from view and add to model
         $courseCategory = $courseCategoryModel->fetchOne($id);
-
+        //send view
         include_once "Views/CourseCategory/edit.php";
     }
 
@@ -128,7 +128,7 @@ class CourseCategoryController
                 exit;
             }
 
-            //error trống có nghĩa ko có lỗi
+            //error empty means no error
             if (empty($error)) {
 
                 $courseCategoryModel->fetchUpdate($data);
@@ -153,10 +153,10 @@ class CourseCategoryController
     public function delete()
     {
         $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
-        // khởi tạo model
+        // create model
         $courseCategoryModel = new CourseCategoryModel();
 
-        // lấy data từ model
+        // get data from model after handling
         $courseCategory = $courseCategoryModel->fetchDelete($id);
 
         $_SESSION['success'] = " Record delete successful ";

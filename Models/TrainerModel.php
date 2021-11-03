@@ -48,7 +48,7 @@ class TrainerModel extends Database
         return $email;
     }
 
-    // Lấy ra tất cả các bản ghi
+    // Lấy ra tất cả các bản ghi //Doan Tu
     public function fetchAll()
     {
         $sqlSelect = "SELECT $this->table.id, $this->table.course_id, $this->table.trainer_name, $this->table.trainer_email, $this->table.trainer_phone,

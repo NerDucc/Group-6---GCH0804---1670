@@ -3,7 +3,7 @@ class TraineeController
 {
     public function index()
     {
-        // Gọi tới model
+        // Gọi tới model //Doan Tu
         $traineeModel = new TraineeModel();
 
         if (isset($_GET['keyword'])) {
@@ -35,12 +35,12 @@ class TraineeController
         $error = [];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // check dữ liệu người dùng nhập vào
+            // check user input format
             if ($data['email'] == '') {
                 $error['email'] = " Email cannot be blank ! ";
             }
 
-            // check dữ liệu người dùng nhập vào
+            // check user input format
             if ($data['password'] == '') {
                 $error['password'] = " Password can not be blank ! ";
             }
@@ -49,7 +49,7 @@ class TraineeController
             if (empty($error)) {
                 $trainee = new TraineeModel();
 
-                // gửi và nhận lại dữ liệu trả về từ database
+                // check email from database and send back 
                 $is_check = $trainee->login($data['email'], $data['password']);
 
                 if (is_object($is_check) && $is_check->id > 0) {
@@ -57,7 +57,7 @@ class TraineeController
                     $_SESSION['admin_id'] = $is_check->id;
                     $_SESSION['level'] = 3;
 
-                    // trả về trang tổng 
+                    // return to main page 
                     $domain =  SITE_URL . "index.php?controller=base&action=dashboard";
                     header("Location: $domain");
                     exit;
@@ -75,7 +75,7 @@ class TraineeController
         include_once "Views/Trainee/create.php";
     }
 
-    // lưu data khi thêm mới
+    // save data to database
     public function store()
     {
         $trainee = new TraineeModel();
@@ -144,7 +144,7 @@ class TraineeController
                 exit;
             }
 
-            //error trống có nghĩa ko có lỗi
+            //error empty means no error
             if (empty($error)) {
 
                 $trainee->fetchStore($data);
@@ -169,10 +169,10 @@ class TraineeController
     public function edit()
     {
         $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
-        // khởi tạo model
+        // define model
         $trainee = new TraineeModel();
-        // lấy data từ model
-        $user = $trainee->fetchOne($id);
+        // get data from model after handling
+         $user = $trainee->fetchOne($id);
 
         $courseModel = new CourseModel();
 
@@ -250,7 +250,7 @@ class TraineeController
                 exit;
             }
 
-            //error trống có nghĩa ko có lỗi
+            //error empty means no error
             if (empty($error)) {
 
                 $trainee->fetchUpdate($data);

@@ -3,7 +3,7 @@ class TrainerController
 {
     public function index()
     {
-        // Gọi tới model
+        // Gọi tới model //Doan Tu
         $trainerModel = new TrainerModel();
 
         if (isset($_GET['keyword'])) {
